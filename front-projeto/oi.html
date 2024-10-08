@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/oi.css">
+    <script src="/static/javascript/funcao.js"></script>
+    <link rel="shortcut icon" href="/static/img/icon-salvar.png">
+    <title>Fast Note</title>
+</head>
+
+<body>
+    <!--
+    <div class="container">
+        <div class="menu">
+            <img src="/static/img/icon-criar.png" class="adicionar" alt="Adicionar nota"
+                onclick="mostrar_esconder('nota')">
+            <a href="/front/toda/nota"><img src="/static/img/icon-pesquisar.png" class="pesquisar"
+                    alt="Pesquisar nota"></a>
+        </div>
+        -->
+        <main>
+            <form id="note-form" action="/front/notes" , method="post">
+                <div class="bloco-nota" id="nota">
+                  <div class="bem-vindo"><h3>Bem vindo {{user.name}}</h3></div>
+                    <h3><i>Titulo</i></h3>
+                    <input type="hidden" name="token" value="{{ token }}">
+                    <label for="title"></label>
+                    <input type="text" id="title" name="title" placeholder="Insira seu titulo">
+                    <label for="note"></label>
+                    <textarea type="text" id="note" name="note" placeholder="Insira seu texto..."></textarea>
+                    <button type="submit" value="Submit" id="salvar"><b><i>Salvar</i></b></button>
+                </div>
+
+            </form>
+        </main>
+    
+    <ul>
+        <h3>List of Notes</h3>
+        {% for note in notes %}
+        <li>{{ note.title }}: {{ note.text }} -- [{{note.created_at}}]</li>
+        {% else %}
+        <li>No notes available</li>
+        {% endfor %}
+    </ul>
+    </div>
+    <!-- edsfgasdg 
+
+
+<script>
+    
+    const token = localStorage.getItem('access_token'); 
+
+    if (!token) {
+        alert('Você precisa estar logado para acessar esta página!');
+        window.location.href = '/login'; 
+    } else {
+        
+        fetch('/front/current-user', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter informações do usuário');
+            }
+            return response.json();
+        })
+        .then(data => {
+            
+            document.getElementById('user-info').innerText = `Usuário: ${data.username}`;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            
+        });
+    }
+    window.addEventListener('beforeunload', function() {
+    document.getElementById('note-form').reset(); 
+});
+
+    
+    
+</script>
+-->
+
+
+</body>
+
+</html>

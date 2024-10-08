@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/vertoken.css">
+    <title>Leitor de Token</title>
+</head>
+
+<body>
+
+    <h2>Leitor de Token</h2>
+
+    <div id="token-info">
+
+        <p>{{user}}</p>
+    </div>
+
+    <script>
+
+        const token = localStorage.getItem('access_token');
+
+        if (token) {
+
+            document.getElementById('token-info').innerText = `Seu token é: ${token}`;
+        } else {
+
+            document.getElementById('token-info').innerText = 'Nenhum token encontrado. Você precisa estar logado.';
+        }
+    </script>
+
+</body>
+
+</html>
